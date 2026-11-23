@@ -23,7 +23,9 @@ class BasePage:
         self.toast = page.get_by_role("alert")
 
     def open(self):
-        self.page.goto(self.route_prefix + self.path)
+        # Page objects and tests wait for the UI they need; external assets
+        # must not block navigation until the full page load event.
+        self.page.goto(self.route_prefix + self.path, wait_until="domcontentloaded")
         return self
 
     def go_to_cart(self):

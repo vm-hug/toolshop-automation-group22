@@ -12,4 +12,23 @@
 ## AI hỗ trợ
 
 AI hỗ trợ giải thích Page Object Model và đề xuất nội dung smoke test.
-Các thành viên tự áp dụng, chạy kiểm thử và chịu trách nhiệm giải thích code.
+
+## CI
+
+![CI](https://github.com/vm-hug/toolshop-automation-group22/actions/workflows/ci.yml/badge.svg)
+
+Workflow chạy toàn bộ bộ kiểm thử trên Chromium, Firefox và WebKit.
+Mỗi trình duyệt lưu báo cáo HTML và bằng chứng của test lỗi.
+
+## BDD
+
+Luồng: tìm kiếm sản phẩm → mở chi tiết → thêm vào giỏ → kiểm tra tiền.
+
+Feature: tests/bdd/features/shopping_cart.feature
+
+Chạy riêng BDD:
+
+```bash
+pytest tests/bdd -v
+
+```
