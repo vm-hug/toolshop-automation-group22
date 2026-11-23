@@ -32,13 +32,12 @@ class HomePage(BasePage):
 
 
     def open(self):
-        """Chờ phản hồi danh sách ban đầu để tránh ghi đè kết quả tìm kiếm."""
+        """Chờ phản hồi tải danh sách ban đầu, kể cả rỗng hoặc lỗi."""
         with self.page.expect_response(
             lambda response: PRODUCT_LIST.search(response.url) is not None
         ):
             super().open()
 
-        self.product_names.first.wait_for(state="visible")
         return self
 
     def search(self, keyword: str):
